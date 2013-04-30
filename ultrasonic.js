@@ -17,17 +17,12 @@ var board = new firmata.Board('/dev/ttyACM0', function(err){
         board.pinMode(TP, board.MODES.OUTPUT);
         board.pinMode(EP, board.MODES.INPUT);
         board.pinMode(Led, board.MODES.OUTPUT);
-        var ledOn = true;
         setInterval(function(){
-                if (ledOn) {
-                        console.log('+');
-                        board.digitalWrite(Led, board.HIGH);
-                }
-                else {
-                        console.log('-');
-                        board.digitalWrite(Led, board.LOW);
-                }
-                ledOn = !ledOn;
-        }
-        ,500)
+                board.digitalWrite(TP, board.LOW);
+        },2)
+        setInterval(function(){
+                board.digitalWrite(TP, board.HIGH);
+        },10)
+        board.digitalWrite(TP, board.LOW);
+        board.digitalRead(EP,)
 });
