@@ -21,11 +21,11 @@ var board = new firmata.Board('/dev/ttyACM0', function(err){
         setInterval(function(){
                 if (ledOn) {
                         console.log('+');
-                        board.digitalWrite(led, board.HIGH);
+                        board.digitalWrite(Led, board.HIGH);
                 }
                 else {
                         console.log('-');
-                        board.digitalWrite(led, board.LOW);
+                        board.digitalWrite(Led, board.LOW);
                 }
                 ledOn = !ledOn;
         }
